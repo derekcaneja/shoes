@@ -68,19 +68,16 @@
 
           <div class="products-page nav">
             <i class="fa fa-arrow-left"></i>
-            <h2>RESULTS</h2>
+            <h2 ng-click="step(4)">RESULTS</h2>
           </div>
 
 
             <div class="products-page content">
               <div id="result" class="result" draggable="true" ng-show="currentItem()" hm-swipeleft="skipShoe" hm-swiperight="saveShoe(currentItem())">
 
-                {{currentItem()}}
-
-                <div class="product-image"></div>
-
+                <div ng-style="{'background-image': 'url(\'{{currentItem().image_link}}\')'}" class="product-image"></div>
                 <section class="product-label">
-                  <h3 class="product-name">Product Name</h3><h3 class="product-price">$90.99</h3>
+                  <h3 class="product-name">{{currentItem().title}}</h3><h3 class="product-price">{{currentItem().price}}</h3>
                 </section>
               </div>
 
@@ -100,9 +97,15 @@
         <!-- STEP 4, SEE FINAL RESULTS -->
         <div id="results" x-ng-switch-when="4">
           DOG QUZZUP
-          <div x-ng-repeat="chosenShoe in chosenShoes">
-            {{chosenShoe}}
-          </div>
+          <li x-ng-repeat="chosenShoe in chosenShoes">
+
+            <a href="{{chosenShoe.link}}">
+              <img src="{{chosenShoe.image_link}}">
+              {{chosenShoe.title}}
+              </img>
+            </a>
+
+          </li>
 
         </div> <!-- end results -->
 
@@ -121,7 +124,7 @@
     <script src="js/gestures.min.js"></script>
 
     <script charset="utf-8">
-      var resultSize = $('.container').width()*0.92;
+      var resultSize = $('#holder').width()*0.92;
       $('.result, .result-stack-effect').css({
         'max-width': resultSize,
         'max-height': resultSize,
@@ -133,6 +136,11 @@
       $('.product-image').css({
         'max-height': $('.result').height() - 40,
       })
+
+      $('#video-wrapper').css({
+        'top': ($('.content-top').height() + $('.content-bottom').height()) * -1,
+        'visibility': 'visible'
+      });
 
 
     </script>
