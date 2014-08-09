@@ -13,10 +13,23 @@ shoeApp.controller('ShoeCtrl', ['$scope', 'shoeFactory', function($scope, shoeFa
     $scope.setGender = function(param) {
         if      (param == 'mens')   $scope.params.gender = "Men\\'s";
         else if (param == 'womens') $scope.params.gender = "Women\\'s";
+
+        $('.mens').removeClass('selected-button');
+        $('.womens').removeClass('selected-button');
+
+        $('.' + param).addClass('selected-button');
     };
 
     $scope.setOccassion = function(param) {
         $scope.params.type = param;
+
+        $('.Sandals').removeClass('selected-button');
+        $('.Boots').removeClass('selected-button');
+        $('.Slippers').removeClass('selected-button');
+        $('.Dress').removeClass('selected-button');
+        $('.Casual').removeClass('selected-button');
+
+        $('.' + param).addClass('selected-button');
     };
 
     $scope.setPrice = function(param) {
@@ -30,6 +43,12 @@ shoeApp.controller('ShoeCtrl', ['$scope', 'shoeFactory', function($scope, shoeFa
             $scope.params.minprice = 100;
             $scope.params.maxprice = 1000;
         }
+
+        $('.money1').removeClass('selected-button');
+        $('.money2').removeClass('selected-button');
+        $('.money3').removeClass('selected-button');
+
+        $('.money' + param).addClass('selected-button');
     };
 
     $scope.items = null;
