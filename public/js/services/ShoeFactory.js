@@ -3,7 +3,7 @@ shoeApp.factory('shoeFactory', ['$http', function($http){
 
   	factory.getShoes = function(dataSet, params){
   		params.dataSet = dataSet;
-  		
+
     	return $http.post('/api', params);
   	};
 

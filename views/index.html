@@ -10,11 +10,10 @@
     <body ng-controller='ShoeCtrl'>
 	    <div class="container">
   			<div class="main-page masthead">
-          		<div class="logo"></div>
-          		<h1>Shoes</h1>
-        	</div>
-
-        	<div class="main-page content">
+          <div class="logo"></div>
+          <h1>Shoes</h1>
+        </div>
+      <div class="main-page content">
 				<div class="row">
 					<h4>Gender</h4>
 	            	<button ng-click="setGender('mens')">MENS</button>
@@ -22,18 +21,16 @@
 	          	</div>
 		        <div class="row">
 					<h4>Occasion</h4>
-					<button ng-click="setOccassion('casual')">CASUAL</button>
-		            <button ng-click="setOccassion('dressy')">DRESSY</button>
-		            <button ng-click="setOccassion('outdoors')">OUTDOORS</button>
+					<button ng-click="setOccassion('Casual')">CASUAL</button>
+		            <button ng-click="setOccassion('Dress')">DRESSY</button>
+		            <button ng-click="setOccassion('Work-Outdoors')">OUTDOORS</button>
 		            <button ng-click="setOccassion('work')">WORK</button>
 				</div>
 				<div class="row">
-           			<h4>Season</h4>
-					<button ng-click="setSeason('spring')">SPRING</button>
-		            <button ng-click="setSeason('summer')">SUMMER</button>
-		            <button ng-click="setSeason('fall')">FALL</button>
-		            <button ng-click="setSeason('winter')">WINTER</button>
-          		</div>
+           			<h4>Price</h4>
+					<button ng-click="setPrice('1')">$</button>
+		            <button ng-click="setPrice('2')">$$</button>
+		            <button ng-click="setPrice('3')">$$$</button>
          		<button ng-click="showColorChooser()">Submit</button>
         	</div>
 	    </div>
@@ -48,5 +45,6 @@
 	    <script src="../js/main.js"></script>
 	    <script src="../js/controllers/ShoeCtrl.js"></script>
 	    <script src="../js/services/ShoeFactory.js"></script>
+      <script src="../js/gestures.min.js"></script>
   	</body>
 </html>

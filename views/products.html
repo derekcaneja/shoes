@@ -16,10 +16,20 @@
 				<h2>RESULTS</h2>
 			</div>
 			<div class="products-page content">
-				<div class="result">
+				<div id="result" class="result">
+					<div class="product-image"></div>
+					<section class="product-label">
+						<h3 class="product-name">Product Name</h3><h3 class="product-price">$90.99</h3>
+					</section>
+				</div>
+				<div class="result-stack-effect">
 				</div>
 
 
+			</div>
+			<div class="product-like">
+				<div class="hate"><i class="fa fa-times"></i></div>
+				<div class="love"><i class="fa fa-check"></i></div>
 			</div>
 		</div>
 
@@ -34,12 +44,20 @@
 		<script src="../js/controllers/ShoeCtrl.js"></script>
 		<script src="../js/services/ShoeFactory.js"></script>
 		<script>
-
-		$('.result').css({
-			'max-width': $('.container').width()*0.86,
-			'max-height': $('.container').width()*0.86,
+		var resultSize = $('.container').width()*0.92;
+		$('.result, .result-stack-effect').css({
+			'max-width': resultSize,
+			'max-height': resultSize,
 			'visibility': 'visible'
+		});
+		$('.result-stack-effect').css({
+			'top': resultSize * -1
 		})
+		$('.product-image').css({
+			'max-height': $('.result').height() - 40,
+		})
+		
+
 
 
 		</script>

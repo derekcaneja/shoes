@@ -25,6 +25,7 @@ app.configure('development', function(){
 app.get('/', routes.index);
 app.get('/color', routes.color);
 app.get('/results', routes.results);
+app.get('/slideshow', routes.slideshow)
 app.post('/api', routes.api);
 
 http.createServer(app).listen(app.get('port'), function(){

@@ -5,22 +5,38 @@ shoeApp.controller('ShoeCtrl', ['$scope', 'shoeFactory', function($scope, shoeFa
 
         console.log('initing');
 
+        // USER FORM INPUT
         $scope.params = {};
 
         $scope.setGender = function(param) {
-            $scope.params.gender = param;
+            if      (param == 'mens')   $scope.params.gender = "Men\\'s";
+            else if (param == 'womens') $scope.params.gender = "Women\\'s";
         };
 
         $scope.setOccassion = function(param) {
-            $scope.params.occassion = param;
+            $scope.params.type = param;
         };
 
-        $scope.setSeason = function(param) {
-            $scope.params.season = param;
+        $scope.setPrice = function(param) {
+            if(param == 1) {
+                $scope.params.minprice = 0;
+                $scope.params.maxprice = 70;
+            } else if(param == 2) {
+                $scope.params.minprice = 70;
+                $scope.params.maxprice = 100;
+            } else if (param == 3) {
+                $scope.params.minprice = 100;
+                $scope.params.maxprice = 1000;
+            }
         };
 
+        $scope.items = null;
+
+        // USER SELECTION METHODS
         $scope.showColorChooser = function() {
-            console.log($scope.params);
+            shoeFactory.getShoes('bygendertypeminpriceandmaxprice', $scope.params).success(function(data) {
+                $scope.items = data;
+            });
         };
 
         $scope.colors = [];
@@ -60,6 +76,30 @@ shoeApp.controller('ShoeCtrl', ['$scope', 'shoeFactory', function($scope, shoeFa
         $scope.filterColor = function() {
             
         }
+
+        $scope.saveShoe = function(shoe){
+          console.log('saved!')
+          this.chosenShoes.push(shoe);
+          console.log(this.chosenShoes);
+          this.nextShoe();
+        };
+
+        $scope.nextShoe = function(e){
+          console.log('skipped shoe!');
+          this.currentNum ++;
+          if ($scope.currentNum == $scope.resultShoes.length ){
+            console.log('done')
+          }
+        };
+
+        $scope.currentNum = 0;
+
+        $scope.currentItem = function(){
+            return $scope.resultShoes[$scope.currentNum];
+        };
+
+        $scope.chosenShoes = [];
+
     };
 
     init();
