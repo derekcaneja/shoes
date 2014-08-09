@@ -393,9 +393,9 @@ li {
   list-style: none; }
   li * {
     vertical-align: middle;
-    color: rgba(70, 109, 73, 0.2); }
+    color: #1e2f1f; }
   li a {
-    color: rgba(70, 109, 73, 0.2); }
+    color: #1e2f1f; }
 
 .logo {
   background-color: rgba(70, 109, 73, 0.2);

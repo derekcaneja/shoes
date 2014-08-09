@@ -61,13 +61,15 @@ a {
 	}
 }
 li{
+
 	list-style: none;
 	*{
 		vertical-align: middle;
-		color: desaturate(darken(rgba($green,0.2),32%),10%);
+		color: desaturate(darken(rgba($green,1),52%),10%);
 	}
 	a{
-		color: desaturate(darken(rgba($green,0.2),32%),10%);
+		color: desaturate(darken(rgba($green,1),52%),10%);
+
 	}
 }
 .logo{
