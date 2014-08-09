@@ -46,7 +46,7 @@
         <div x-ng-switch-when="2">
   <button style="position: absolute;right:0;z-index:99999;" x-ng-click="step(3)">CHOOSE moar SHOES</button>
           <div class="color-page nav">
-            <i class="fa fa-arrow-left"></i>
+            <i class="fa fa-arrow-left" x-ng-click="step(1)"></i>
 
           </div>
 
@@ -57,8 +57,6 @@
             </div>
             <section id="video-wrapper"></section>
           </div>
-
-          STEP 2
         </div>
 
 
@@ -67,7 +65,7 @@
         <div id="options" x-ng-switch-when="3">
 
           <div class="products-page nav">
-            <i class="fa fa-arrow-left"></i>
+            <i class="fa fa-arrow-left" ng-click="step(2)" style="display:block"></i>
             <h2 ng-click="step(4)">RESULTS</h2>
           </div>
 
@@ -93,7 +91,7 @@
 
         <!-- STEP 4, SEE FINAL RESULTS -->
         <div id="results" x-ng-switch-when="4">
-          DOG QUZZUP
+          Results:
           <li x-ng-repeat="chosenShoe in chosenShoes">
 
             <a href="{{chosenShoe.link}}">
