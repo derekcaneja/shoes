@@ -7,38 +7,33 @@
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     </head>
 
-    <body>
+    <body ng-controller='ShoeCtrl'>
 	    <div class="container">
   			<div class="main-page masthead">
           <div class="logo"></div>
           <h1>Shoes</h1>
         </div>
-        <div class="main-page content">
-          <div class="row">
-            <h4>Gender</h4>
-            <button>MENS</button><button>WOMENS</button>
-          </div>
-          <div class="row">
-            <h4>Occasion</h4>
-            <button>CASUAL</button>
-            <button>INDOORS/SLIPPERS</button>
-            <button>DRESS</button>
-            <button>BOOTS</button>
-            <button>SANDALS</button>
-          </div>
-          <div class="row">
-            <h4>PRICE</h4>
-            <button>$</button>
-            <button>$$</button>
-            <button>$$$</button>
-          </div>
-          <button class="call-to-action">Submit</button>
-        </div>
+      <div class="main-page content">
+				<div class="row">
+					<h4>Gender</h4>
+	            	<button ng-click="setGender('mens')">MENS</button>
+	            	<button ng-click="setGender('womens')">WOMENS</button>
+	          	</div>
+		        <div class="row">
+					<h4>Occasion</h4>
+					<button ng-click="setOccassion('casual')">CASUAL</button>
+		            <button ng-click="setOccassion('dressy')">DRESSY</button>
+		            <button ng-click="setOccassion('outdoors')">OUTDOORS</button>
+		            <button ng-click="setOccassion('work')">WORK</button>
+				</div>
+				<div class="row">
+           			<h4>Price</h4>
+					<button ng-click="setSeason('spring')">$</button>
+		            <button ng-click="setSeason('summer')">$$</button>
+		            <button ng-click="setSeason('fall')">$$$</button>
+         		<button ng-click="showColorChooser()">Submit</button>
+        	</div>
 	    </div>
-
-
-
-
 
 	    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
@@ -50,5 +45,5 @@
 	    <script src="../js/main.js"></script>
 	    <script src="../js/controllers/ShoeCtrl.js"></script>
 	    <script src="../js/services/ShoeFactory.js"></script>
-  </body>
+  	</body>
 </html>

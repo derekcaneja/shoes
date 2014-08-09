@@ -3,6 +3,24 @@ shoeApp.controller('ShoeCtrl', ['$scope', 'shoeFactory', function($scope, shoeFa
   function init(){
     console.log('initing');
 
+    $scope.params = {};
+
+    $scope.setGender = function(param) {
+        $scope.params.gender = param;
+    };
+
+    $scope.setOccassion = function(param) {
+        $scope.params.occassion = param;
+    };
+
+    $scope.setSeason = function(param) {
+        $scope.params.season = param;
+    };
+
+    $scope.showColorChooser = function() {
+        console.log($scope.params);
+    };
+
     $scope.resultShoes = shoeFactory.getShoes('womens');
 
     $scope.saveShoe = function(shoe){
@@ -29,7 +47,3 @@ shoeApp.controller('ShoeCtrl', ['$scope', 'shoeFactory', function($scope, shoeFa
     $scope.chosenShoes = [];
 
   };
-
-  init();
-
-}]);

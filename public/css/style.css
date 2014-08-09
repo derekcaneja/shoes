@@ -378,32 +378,83 @@ a {
   margin: 0 auto; }
 
 .nav {
-  padding: 0 10px;
-  height: 40px;
-  width: 100%;
-  text-align: left;
-  display: table; }
-  .nav i {
-    display: table-cell;
-    vertical-align: middle;
-    font-size: 18px; }
-
-.content-top {
   position: absolute;
   top: 0;
+  z-index: 99;
+  max-width: 460px;
+  padding: 0;
+  height: 40px;
+  width: 100%;
+  text-align: center;
+  display: table; }
+  .nav i {
+    position: relative;
+    left: 10px;
+    width: 22px;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 22px;
+    color: white; }
+  .nav h2 {
+    position: relative;
+    left: -10px;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 16px;
+    letter-spacing: 1.2;
+    font-weight: 200;
+    text-align: center;
+    color: white; }
+
+video {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 50%;
+  display: table-cell;
+  vertical-align: middle; }
+
+.content-wrapper {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  max-width: 460px; }
+
+.content-top {
+  position: relative;
+  height: 50%;
+  z-index: 99;
   width: 100%;
   border-bottom: 1px solid black;
   background-image: url("../img/shirt.png"); }
 
 .color-page.content {
+  overflow: hidden !important;
   background-position: center;
   background-repeat: no-repeat;
   background-size: 50% auto; }
 
+.products-page.content {
+  height: 100%;
+  padding: 100px 0; }
+
 .content-bottom {
   background-image: url("../img/pants.png");
-  position: absolute;
-  top: 50%;
   height: 50%;
-  width: 100%; }
+  width: 100%;
+  z-index: 99;
+  position: relative; }
+
+.result {
+  visibility: hidden;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  background: #f9fcfa;
+  border: 4px solid #498e4f;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px; }

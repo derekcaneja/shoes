@@ -1,8 +1,47 @@
-<div class="products-page nav">
-	<i class="fa fa-arrow-left"></i>
-</div>
-<div class="products-page content">
-	<h2>#</h2>
-	
+<html lang="en" x-ng-app="shoeApp">
+    <head>
+        <meta charset='utf-8'/>
+        <title>Shoes Bitches</title>
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <link href="css/style.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        
+    </head>
 
-</div>
+    <body>
+	    <div class="container">
+	    	
+			<div class="products-page nav">
+				<i class="fa fa-arrow-left"></i>
+				<h2>RESULTS</h2>
+			</div>
+			<div class="products-page content">
+				<div class="result">
+				</div>
+
+
+			</div>
+		</div>
+
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.13/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.13/angular-animate.js"></script>
+		<script src="../js/color-thief.js"></script>
+		<script src="../js/hammer.js"></script>
+		<script src="../js/angular-route.js"></script>
+		<script src="../js/main.js"></script>
+		<script src="../js/controllers/ShoeCtrl.js"></script>
+		<script src="../js/services/ShoeFactory.js"></script>
+		<script>
+
+		$('.result').css({
+			'max-width': $('.container').width()*0.86,
+			'max-height': $('.container').width()*0.86,
+			'visibility': 'visible'
+		})
+
+
+		</script>
+</body>
+</html>

@@ -1,14 +1,11 @@
 shoeApp.factory('shoeFactory', ['$http', function($http){
-  var factory = {};
+  	var factory = {};
 
-  factory.getShoes = function(category){
-    // return $http.get()
-    return ["dog","cat"]
-  };
+  	factory.getShoes = function(dataSet, params){
+  		params.dataSet = dataSet;
+  		
+    	return $http.post('/api', params);
+  	};
 
-  // factory.getX = function(X){
-  //   return $http.get()
-  // };
-
-  return factory;
+  	return factory;
 }]);
