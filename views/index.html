@@ -73,7 +73,7 @@
 
 
             <div class="products-page content">
-              <div id="result" class="result" draggable="true" ng-show="currentItem()" hm-swipeleft="skipShoe" hm-swiperight="saveShoe(currentItem())">
+              <div id="result" class="result" draggable="true" ng-show="currentItem()" hm-dragleft="skipShoe()" hm-dragright="saveShoe(currentItem())" hm-swipeleft="skipShoe()" hm-swiperight="saveShoe(currentItem())">
 
                 <div ng-style="{'background-image': 'url(\'{{currentItem().image_link}}\')'}" class="product-image"></div>
                 <section class="product-label">
@@ -141,6 +141,8 @@
         'top': ($('.content-top').height() + $('.content-bottom').height()) * -1,
         'visibility': 'visible'
       });
+
+      
 
 
     </script>
