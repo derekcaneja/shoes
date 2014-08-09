@@ -10,11 +10,10 @@
     <body ng-controller='ShoeCtrl'>
 	    <div class="container">
   			<div class="main-page masthead">
-          		<div class="logo"></div>
-          		<h1>Shoes</h1>
-        	</div>
-
-        	<div class="main-page content">
+          <div class="logo"></div>
+          <h1>Shoes</h1>
+        </div>
+      <div class="main-page content">
 				<div class="row">
 					<h4>Gender</h4>
 	            	<button ng-click="setGender('mens')">MENS</button>
@@ -28,12 +27,10 @@
 		            <button ng-click="setOccassion('work')">WORK</button>
 				</div>
 				<div class="row">
-           			<h4>Season</h4>
-					<button ng-click="setSeason('spring')">SPRING</button>
-		            <button ng-click="setSeason('summer')">SUMMER</button>
-		            <button ng-click="setSeason('fall')">FALL</button>
-		            <button ng-click="setSeason('winter')">WINTER</button>
-          		</div>
+           			<h4>Price</h4>
+					<button ng-click="setSeason('spring')">$</button>
+		            <button ng-click="setSeason('summer')">$$</button>
+		            <button ng-click="setSeason('fall')">$$$</button>
          		<button ng-click="showColorChooser()">Submit</button>
         	</div>
 	    </div>
