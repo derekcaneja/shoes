@@ -45,12 +45,12 @@ var webcam = (function(){
     return {
         init: function() {
 
-            video.height      = $('.content-top').height();
-            video.width       = $('.content-top').width();
-            video.videoWidth  = video.width;
-            video.videoHeight = video.height;
+            video.height = $('.content').height()*2;
+            video.width = $('.content').width()*2;
+            video.videoWidth = video.width*2;
+            video.videoHeight = video.height*2;
             //video.addClass('');
-            $('.content-wrapper').append(video);
+            $('#video-wrapper').append(video);
 
             navigator.getUserMedia || (navigator.getUserMedia = navigator.mozGetUserMedia || navigator.webkitGetUserMedia || navigator.msGetUserMedia);
 

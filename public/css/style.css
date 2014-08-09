@@ -343,7 +343,8 @@ table {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif; }
+  font-family: 'Open Sans', sans-serif;
+  outline: none !important; }
 
 html, body {
   width: 100%;
@@ -356,15 +357,25 @@ body {
   background: rgba(144, 198, 149, 0.5); }
 
 .container {
+  overflow: hidden !important;
   height: 100%;
   max-width: 460px;
   margin: 0 auto;
-  background: #90c695; }
+  background: rgba(144, 198, 149, 0.6); }
+
+#video-wrapper {
+  width: 100%;
+  max-width: 460px;
+  overflow: hidden;
+  height: 50%;
+  position: relative;
+  visibility: hidden; }
 
 a {
   color: #00B7FF; }
 
 .masthead {
+  padding-top: 40px;
   width: 100%;
   text-align: center; }
 
@@ -385,7 +396,6 @@ a {
   padding: 0;
   height: 40px;
   width: 100%;
-  text-align: center;
   display: table; }
   .nav i {
     position: relative;
@@ -410,9 +420,9 @@ video {
   position: absolute;
   z-index: 1;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 50%;
+  left: -100;
+  width: 150%;
+  height: 150%;
   display: table-cell;
   vertical-align: middle; }
 
@@ -475,12 +485,14 @@ video {
   color: #1e3920; }
 
 .product-price {
+  letter-spacing: 1.2;
   font-weight: 700;
   color: #519f59; }
 
 .product-like {
   position: absolute;
   bottom: 20px;
+  max-width: 460px;
   width: 100%;
   height: 60px;
   text-align: center; }
@@ -503,6 +515,7 @@ video {
       color: #90c695 !important; }
 
 .result, .result-stack-effect {
+  cursor: move;
   z-index: 10;
   position: relative;
   visibility: hidden;
@@ -524,3 +537,37 @@ video {
   -o-transform: rotate(3deg);
   transform: rotate(3deg);
   opacity: 0.5; }
+
+.main-page .row h4 {
+  color: rgba(0, 0, 0, 0.5);
+  margin: 18px 0 12px 0; }
+.main-page button {
+  color: #e4f1e5;
+  font-weight: 600;
+  letter-spacing: 1.25;
+  font-size: 15px;
+  padding: 4px 8px 5px 8px;
+  margin: 0 4px 6px 0;
+  background: #5dac65;
+  border: none;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none; }
+
+.selected-button, .main-page button:active {
+  background: #519f59; }
+
+.not-selected {
+  background: #75b87b; }
+
+.submitbutton {
+  margin: 42px 0 0 0 !important;
+  width: 100%;
+  background: #4183d7 !important;
+  height: 60px; }
+
+.main-page.content {
+  padding: 0 20px; }

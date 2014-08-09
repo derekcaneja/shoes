@@ -19,7 +19,7 @@ shoeApp.controller('ShoeCtrl', ['$scope', 'shoeFactory', function($scope, shoeFa
 
         $scope.setPrice = function(param) {
             if(param == 1) {
-                $scope.params.minprice = 0;
+                $scope.params.minprice = 1;
                 $scope.params.maxprice = 70;
             } else if(param == 2) {
                 $scope.params.minprice = 70;
@@ -77,6 +77,7 @@ shoeApp.controller('ShoeCtrl', ['$scope', 'shoeFactory', function($scope, shoeFa
             
         }
 
+        
         $scope.saveShoe = function(shoe){
           console.log('saved!')
           this.chosenShoes.push(shoe);
@@ -84,24 +85,32 @@ shoeApp.controller('ShoeCtrl', ['$scope', 'shoeFactory', function($scope, shoeFa
           this.nextShoe();
         };
 
-        $scope.nextShoe = function(e){
+        $scope.nextShoe = function(){
           console.log('skipped shoe!');
           this.currentNum ++;
-          if ($scope.currentNum == $scope.resultShoes.length ){
-            console.log('done')
+          var _this = this;
+          if (this.currentNum == this.resultShoes.length){
+            console.log('done choozing')
+            _this.selectionDone();
           }
         };
 
         $scope.currentNum = 0;
 
         $scope.currentItem = function(){
-            return $scope.resultShoes[$scope.currentNum];
+            return this.resultShoes[this.currentNum];
         };
 
         $scope.chosenShoes = [];
 
-    };
+        $scope.selectionDone = function(){
+          if (this.currentNum == this.resultShoes.length ){
+            console.log('ahhh!!!')
+            $scope.selectionDone = "done";
+          }
+        }
+      };
 
-    init();
+      init();
 
 }]);

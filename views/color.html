@@ -16,6 +16,7 @@
 <div class="color-page content-wrapper">
 	<div class="color-page content content-top" ng-click="getColor('top')"></div>
 	<div class="color-page content content-bottom"  ng-click="getColor('bottom')"></div>
+	<section id="video-wrapper"></section>
 </div>
 </div>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -24,10 +25,16 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.13/angular-animate.js"></script>
 <script src="../js/webcam.js"></script>
 <script src="../js/color-thief.js"></script>
-<script src="../js/hammer.js"></script>
 <script src="../js/angular-route.js"></script>
+<script src="../js/gestures.min.js"></script>
 <script src="../js/main.js"></script>
 <script src="../js/controllers/ShoeCtrl.js"></script>
 <script src="../js/services/ShoeFactory.js"></script>
+<script>
+	$('#video-wrapper').css({
+		'top': ($('.content-top').height() + $('.content-bottom').height()) * -1,
+		'visibility': 'visible'
+	});
+</script>
 </body>
 </html>

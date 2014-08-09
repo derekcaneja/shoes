@@ -15,23 +15,24 @@
         </div>
       <div class="main-page content">
 				<div class="row">
-					<h4>Gender</h4>
-	            	<button ng-click="setGender('mens')">MENS</button>
-	            	<button ng-click="setGender('womens')">WOMENS</button>
+					<h4>GENDER</h4>
+	            	<button ng-click="setGender('mens')">Men's</button>
+	            	<button ng-click="setGender('womens')">Women's</button>
 	          	</div>
 		        <div class="row">
-					<h4>Occasion</h4>
-					<button ng-click="setOccassion('Casual')">CASUAL</button>
-		            <button ng-click="setOccassion('Dress')">DRESSY</button>
-		            <button ng-click="setOccassion('Work-Outdoors')">OUTDOORS</button>
-		            <button ng-click="setOccassion('work')">WORK</button>
+					<h4>TYPE</h4>
+					<button ng-click="setOccassion('Casual')">Casual</button>
+		            <button ng-click="setOccassion('Slippers')">Slippers</button>
+		            <button ng-click="setOccassion('Dress')">Dress</button>
+		            <button ng-click="setOccassion('Boots')">Boots</button>
+		            <button ng-click="setOccassion('Sandals')">Sandals</button>
 				</div>
 				<div class="row">
-           			<h4>Price</h4>
-					<button ng-click="setPrice('1')">$</button>
-		            <button ng-click="setPrice('2')">$$</button>
-		            <button ng-click="setPrice('3')">$$$</button>
-         		<button ng-click="showColorChooser()">Submit</button>
+           			<h4>PRICE</h4>
+					<button ng-click="setPrice('1')"><i class="fa fa-usd"></i></button>
+		            <button ng-click="setPrice('2')"><i class="fa fa-usd"></i><i class="fa fa-usd"></i></button>
+		            <button ng-click="setPrice('3')"><i class="fa fa-usd"></i><i class="fa fa-usd"></i><i class="fa fa-usd"></i></button>
+         			<button class="submitbutton" ng-click="showColorChooser()">Submit</button>
         	</div>
 	    </div>
 
