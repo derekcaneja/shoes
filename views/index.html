@@ -68,7 +68,7 @@
 
           <div class="products-page nav">
             <i class="fa fa-arrow-left"></i>
-            <h2>RESULTS</h2>
+            <h2 ng-click="step(4)">RESULTS</h2>
           </div>
 
 
@@ -98,9 +98,15 @@
         <!-- STEP 4, SEE FINAL RESULTS -->
         <div id="results" x-ng-switch-when="4">
           DOG QUZZUP
-          <div x-ng-repeat="chosenShoe in chosenShoes">
-            {{chosenShoe}}
-          </div>
+          <li x-ng-repeat="chosenShoe in chosenShoes">
+
+            <a href="{{chosenShoe.link}}">
+              <img src="{{chosenShoe.image_link}}">
+              {{chosenShoe.title}}
+              </img>
+            </a>
+
+          </li>
 
         </div> <!-- end results -->
 
