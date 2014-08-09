@@ -1,3 +1,5 @@
+var colorThief = new ColorThief();
+
 shoeApp.controller('ShoeCtrl', ['$scope', 'shoeFactory', function($scope, shoeFactory){
 
 
@@ -5,7 +7,6 @@ shoeApp.controller('ShoeCtrl', ['$scope', 'shoeFactory', function($scope, shoeFa
     console.log('initing');
 
     // USER FORM INPUT
-    var colorThief = new ColorThief();
 
     $scope.params = {};
 
@@ -59,12 +60,17 @@ shoeApp.controller('ShoeCtrl', ['$scope', 'shoeFactory', function($scope, shoeFa
         // set the source of the img tag
         var color = colorThief.getColor(image);
 
+        console.log(color)
+
         $('.content-' + section).css('background-color', 'rgb(' + color.toString() + ')');
 
         $scope.colors.push(color);
 
-        if ($scope.colors.length == 1) video.style.top = $('.content-' + section).height();
-        else if ($scope.colors.length == 2) console.log('done!');
+        var _this = this;
+        if ($scope.colors.length == 1) $('#video-wrapper').css('top', $('.content-bottom').height() * -1 - 10);
+        else if ($scope.colors.length == 2) {
+                _this.step(3);
+        }
     }
 
     $scope.filterColor = function() {
@@ -84,7 +90,7 @@ shoeApp.controller('ShoeCtrl', ['$scope', 'shoeFactory', function($scope, shoeFa
       console.log('skipped shoe!');
       this.currentNum ++;
       var _this = this;
-      if (this.currentNum == this.items.length){
+      if (this.currentNum == this.finalItems.length){
         console.log('done choozing')
         _this.step(4);
       }
@@ -92,25 +98,44 @@ shoeApp.controller('ShoeCtrl', ['$scope', 'shoeFactory', function($scope, shoeFa
 
     $scope.currentNum = 0;
 
-    $scope.currentItem = function(){
-      console.log(this.items)
-      return this.items[this.currentNum];
+        $scope.currentItem = function(){
+            return this.finalItems[this.currentNum];
+        };
+
+        $scope.chosenShoes = [];
+
+        $scope.currentStep = 1;
+
+        $scope.finalItems = [];
+
+        $scope.step = function(index){
+            if($scope.currentStep == 1) {
+                shoeFactory.getShoes('bygendertypeminpriceandmaxprice', $scope.params).success(function(data) {
+                    $scope.items = data;
+                });
+
+                $('#video-wrapper').css('top', 0);
+                $('#video-wrapper').css('visibility', true);
+            } else if($scope.currentStep == 2) {
+
+                for(var i = 0; i < $scope.items.length; i++) {
+                    var color = $scope.items[i].color.toLowerCase();
+
+                    if(color.indexOf('black') > -1) color = 'black';
+                    if(color.indexOf('brown') > -1) color = 'brown';
+                    if(color.indexOf('tan') > -1)   color = 'tan';
+
+                    if(color == 'black' && $scope.colors[0][0] < 90 && $scope.colors[0][1] < 90 && $scope.colors[0][2] < 90) {
+                        $scope.finalItems.push($scope.items[i]);
+                    } else if(color == 'tan' && $scope.colors[0][0] > 170 && $scope.colors[0][1] > 150 && $scope.colors[0][2] > 130) {
+                        $scope.finalItems.push($scope.items[i]);
+                    }
+                }
+            } 
+            
+            $scope.currentStep = index;
+        }
     };
 
-    $scope.chosenShoes = [];
-
-    $scope.step = function(index){
-        if($scope.currentStep == 1) {
-            shoeFactory.getShoes('bygendertypeminpriceandmaxprice', $scope.params).success(function(data) {
-                $scope.items = data;
-            });
-        }
-        
-        $scope.currentStep = index;
-    }
-
-    $scope.currentStep = 1;
-  };
-
-  init();
+    init();
 }]);
