@@ -1,7 +1,8 @@
 var express = require('express')
   , routes  = require('./routes')
   , http    = require('http')
-  , path    = require('path');
+  , path    = require('path')
+  , hhBrown = require('hhbrown');
 
 var app = express();
 
@@ -24,6 +25,12 @@ app.configure('development', function(){
 app.get('/', routes.index);
 app.get('/color', routes.color);
 app.get('/results', routes.results);
+
+hhBrown.connect('53e629fe2009340200000022', 'CvbfKmMkDkdlXUU4tUHsMaMr', function() {
+  hhBrown.get('bycolor', { color: 'Brown' }, function(err, shoes) {
+    console.log(err, shoes);
+  });
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
