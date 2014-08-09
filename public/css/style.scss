@@ -54,15 +54,21 @@ a {
 	padding-top: 40px;
 	width: 100%;
 	text-align: center;
-
+	h1{
+		color: desaturate(darken(rgba($green,1),32%),10%);
+	}
 }
 
 .logo{
-	background-color: black;
+	background-color: desaturate(darken(rgba($green,0.2),32%),10%);
 	@include border-radius(50%);
-	height: 60px;
-	width: 60px;
+	height: 160px;
+	width: 160px;
 	margin: 0 auto;
+	background-image: url('../img/logo.png');
+	background-position: center;
+	background-size: 60% auto;
+	background-repeat: no-repeat;
 }
 
 .nav{
@@ -208,13 +214,23 @@ video{
 
 		}
 	}
+	.hate{
+		&:active{
+			i{color: $green !important;}
+			background: #fff;
+		}
+	}
 	.love{
 		background: #fff;
 		i{color: $green !important;}
+		&:active{
+			i{color: #fff !important;}
+			background: transparent;
+		}
 	}
 }
 .result{
-	cursor: move;
+	cursor: pointer;
 	z-index: 10;
 	position: relative;
 	visibility: hidden;
@@ -224,6 +240,9 @@ video{
 	background: #f9fcfa;
 	border: 4px solid darken($green,25%);
 	@include border-radius(6px);
+	&:active{
+		cursor: move !important;
+	}
 }
 
 .result-stack-effect{

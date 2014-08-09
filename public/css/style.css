@@ -385,15 +385,21 @@ a {
   padding-top: 40px;
   width: 100%;
   text-align: center; }
+  .masthead h1 {
+    color: #466d49; }
 
 .logo {
-  background-color: black;
+  background-color: rgba(70, 109, 73, 0.2);
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
-  height: 60px;
-  width: 60px;
-  margin: 0 auto; }
+  height: 160px;
+  width: 160px;
+  margin: 0 auto;
+  background-image: url("../img/logo.png");
+  background-position: center;
+  background-size: 60% auto;
+  background-repeat: no-repeat; }
 
 .nav {
   position: absolute;
@@ -513,13 +519,21 @@ video {
     .product-like div i {
       font-size: 24px;
       color: #fff; }
+  .product-like .hate:active {
+    background: #fff; }
+    .product-like .hate:active i {
+      color: #90c695 !important; }
   .product-like .love {
     background: #fff; }
     .product-like .love i {
       color: #90c695 !important; }
+    .product-like .love:active {
+      background: transparent; }
+      .product-like .love:active i {
+        color: #fff !important; }
 
 .result, .result-stack-effect {
-  cursor: move;
+  cursor: pointer;
   z-index: 10;
   position: relative;
   visibility: hidden;
@@ -531,6 +545,8 @@ video {
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px; }
+  .result:active, .result-stack-effect:active {
+    cursor: move !important; }
 
 .result-stack-effect {
   position: relative;
