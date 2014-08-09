@@ -27,12 +27,12 @@ exports.api = function(req, res) {
 	if(!hhBrown.access_token) {
 		hhBrown.connect('53e629fe2009340200000022', 'CvbfKmMkDkdlXUU4tUHsMaMr', function() {
 			hhBrown.get(dataSet, req.params, function() {
-				res.send({ shoes: shoes });
+				res.send(shoes);
 			});
 		});
 	} else {
 		hhBrown.get(dataSet, req.body, function(shoes) {
-			res.send({ shoes: shoes });
+			res.send(shoes);
 		});
 	}
 }

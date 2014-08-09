@@ -6,15 +6,7 @@ var webcam = (function(){
 
         if (navigator.getUserMedia) {
 
-            navigator.getUserMedia({video: {
-                 mandatory: {
-                    minWidth: $('.content-wrapper').width(),
-                    minHeight: $('.content-wrapper').height()/2,
-                    // maxWidth: $('.content-wrapper').width() + 100,
-                    // maxHeight: ($('.content-wrapper').height()/2) + 100,
-                    minFrameRate: 30
-                }
-            }, audio: false, toString : function() {return "video";} }, onSuccess, onError);
+            navigator.getUserMedia({ video: true, audio: false, toString : function() {return "video";} }, onSuccess, onError);
 
         } else {
 
@@ -46,7 +38,7 @@ var webcam = (function(){
 
     function onError() {
 
-        console.log("ERROR WITH WEBCAM")
+        console.log("ERROR WITH WEBCAM", arguments)
 
     }
 
