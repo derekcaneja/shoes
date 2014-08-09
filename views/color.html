@@ -8,16 +8,14 @@
         
     </head>
 
-    <body>
+    <body ng-controller='ShoeCtrl'>
 	    <div class="container">
 	    	<div class="color-page nav">
 	<i class="fa fa-arrow-left"></i>
 </div>
 <div class="color-page content-wrapper">
-	<div class="color-page content content-top">
-	</div>
-	<div class="color-page content content-bottom">
-	</div>
+	<div class="color-page content content-top" ng-click="getColor('top')"></div>
+	<div class="color-page content content-bottom"  ng-click="getColor('bottom')"></div>
 </div>
 </div>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
