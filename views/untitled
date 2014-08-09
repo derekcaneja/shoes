@@ -1,8 +1,8 @@
-<div class="main-page masthead">
+<div class="color-page nav">
 	<div class="logo"></div>
 	<h1>Shoes</h1>
 </div>
-<div class="main-page content">
+<div class="color-page content">
 	<div class="row">
 		<h4>Gender</h4>
 		<button>MENS</button><button>WOMENS</button>
@@ -15,5 +15,4 @@
 		<h4>Season</h4>
 		<button>SPRING</button><button>SUMMER</button><button>FALL</button><button>WINTER</button>
 	</div>
-	<button class="call-to-action">Submit</button>
 </div>
