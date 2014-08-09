@@ -75,7 +75,9 @@
             <div class="products-page content">
               <div id="result" class="result" draggable="true" ng-show="currentItem()" hm-dragleft="skipShoe()" hm-dragright="saveShoe(currentItem())" hm-swipeleft="skipShoe()" hm-swiperight="saveShoe(currentItem())">
 
-                <div ng-style="{'background-image': 'url(\'{{currentItem().image_link}}\')'}" class="product-image"></div>
+ 
+
+                <img src="{{currentItem().image_link}}" class="product-image"></div>
                 <section class="product-label">
                   <h3 class="product-name">{{currentItem().title}}</h3><h3 class="product-price">{{currentItem().price}}</h3>
                 </section>
@@ -85,7 +87,7 @@
               </div>
 
 
-            </div>
+            
             <div class="product-like">
               <div ng-click="nextShoe()" class="hate"><i class="fa fa-times"></i></div>
               <div ng-click="saveShoe(currentItem())" class="love"><i class="fa fa-check"></i></div>
