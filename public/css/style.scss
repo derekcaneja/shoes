@@ -120,6 +120,24 @@ video{
 .products-page.content{
 	height: 100%;
 	padding: 100px 0;
+	.product-label{
+		position: relative;
+		padding: 8px 8px;
+		height: 40px;
+		display: table;
+		width: 100%;
+	}
+	h3{
+		position: relative;
+		margin: 0;
+		display: inline-block;
+		&:last-of-type{
+			float: right;
+		}
+	}
+}
+.product-image{
+	background-image: url('http://images.hhbrown.com/born/Pair/D20311-130xauto.jpg');
 }
 .content-bottom{
 	background-image: url('../img/pants.png');
@@ -129,8 +147,25 @@ video{
 	position: relative;
 	
 }
+.product-image{
+	width: auto;
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 98% auto;
+}
+.product-name{
+	font-weight: 400;
+	color: darken($green, 50%);
+}
+.product-price{
+	font-weight: 700;
+	color: darken($green, 20%);
+}
 
 .result{
+	z-index: 10;
+	position: relative;
 	visibility: hidden;
 	height: 100%;
 	width: 100%;
@@ -138,4 +173,12 @@ video{
 	background: #f9fcfa;
 	border: 4px solid darken($green,25%);
 	@include border-radius(6px);
+}
+
+.result-stack-effect{
+	@extend .result;
+	position: relative;
+	z-index: 5;
+	@include rotate(3deg);
+	opacity: 0.5;
 }
