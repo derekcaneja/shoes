@@ -3,6 +3,8 @@ shoeApp.controller('ShoeCtrl', ['$scope', 'shoeFactory', function($scope, shoeFa
   function init(){
     console.log('initing');
 
+
+    // USER FORM INPUT
     $scope.params = {};
 
     $scope.setGender = function(param) {
@@ -21,7 +23,9 @@ shoeApp.controller('ShoeCtrl', ['$scope', 'shoeFactory', function($scope, shoeFa
         console.log($scope.params);
     };
 
-    $scope.resultShoes = shoeFactory.getShoes('womens');
+
+    // USER SELECTION METHODS
+    $scope.resultShoes = shoeFactory.getShoes("catalog",$scope.params);
 
     $scope.saveShoe = function(shoe){
       console.log('saved!')
@@ -47,3 +51,7 @@ shoeApp.controller('ShoeCtrl', ['$scope', 'shoeFactory', function($scope, shoeFa
     $scope.chosenShoes = [];
 
   };
+
+  init();
+
+}]);

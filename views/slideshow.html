@@ -16,13 +16,11 @@
     <div ng-controller="ShoeCtrl">
       <div ng-show="currentItem()" draggable="true" hm-swipeleft="skipShoe" hm-swiperight="saveShoe(currentItem())">
           {{currentItem()}}
-
         <button ng-click="nextShoe()">Left</button>
         <button ng-click="saveShoe(currentItem())">Right</button>
-
       </div>
     </div>
-  </div>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.13/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.13/angular-animate.js"></script>
