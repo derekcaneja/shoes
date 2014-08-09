@@ -343,7 +343,8 @@ table {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif; }
+  font-family: 'Open Sans', sans-serif;
+  outline: none !important; }
 
 html, body {
   width: 100%;
@@ -359,12 +360,13 @@ body {
   height: 100%;
   max-width: 460px;
   margin: 0 auto;
-  background: #90c695; }
+  background: rgba(144, 198, 149, 0.6); }
 
 a {
   color: #00B7FF; }
 
 .masthead {
+  padding-top: 40px;
   width: 100%;
   text-align: center; }
 
@@ -385,7 +387,6 @@ a {
   padding: 0;
   height: 40px;
   width: 100%;
-  text-align: center;
   display: table; }
   .nav i {
     position: relative;
@@ -440,6 +441,21 @@ video {
 .products-page.content {
   height: 100%;
   padding: 100px 0; }
+  .products-page.content .product-label {
+    position: relative;
+    padding: 8px 8px;
+    height: 40px;
+    display: table;
+    width: 100%; }
+  .products-page.content h3 {
+    position: relative;
+    margin: 0;
+    display: inline-block; }
+    .products-page.content h3:last-of-type {
+      float: right; }
+
+.product-image {
+  background-image: url("http://images.hhbrown.com/born/Pair/D20311-130xauto.jpg"); }
 
 .content-bottom {
   background-image: url("../img/pants.png");
@@ -448,7 +464,49 @@ video {
   z-index: 99;
   position: relative; }
 
-.result {
+.product-image {
+  width: auto;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 98% auto; }
+
+.product-name {
+  font-weight: 400;
+  color: #1e3920; }
+
+.product-price {
+  letter-spacing: 1.2;
+  font-weight: 700;
+  color: #519f59; }
+
+.product-like {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  height: 60px;
+  text-align: center; }
+  .product-like div {
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    border: 3px solid #fff;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    margin: 0 8px;
+    padding-top: 15px; }
+    .product-like div i {
+      font-size: 24px;
+      color: #fff; }
+  .product-like .love {
+    background: #fff; }
+    .product-like .love i {
+      color: #90c695 !important; }
+
+.result, .result-stack-effect {
+  z-index: 10;
+  position: relative;
   visibility: hidden;
   height: 100%;
   width: 100%;
@@ -458,3 +516,47 @@ video {
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px; }
+
+.result-stack-effect {
+  position: relative;
+  z-index: 5;
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  transform: rotate(3deg);
+  opacity: 0.5; }
+
+.main-page .row h4 {
+  color: rgba(0, 0, 0, 0.5);
+  margin: 18px 0 12px 0; }
+.main-page button {
+  color: #e4f1e5;
+  font-weight: 600;
+  letter-spacing: 1.25;
+  font-size: 15px;
+  padding: 4px 8px 5px 8px;
+  margin: 0 4px 6px 0;
+  background: #5dac65;
+  border: none;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none; }
+
+.selected-button, .main-page button:active {
+  background: #519f59; }
+
+.not-selected {
+  background: #75b87b; }
+
+.submitbutton {
+  margin: 42px 0 0 0 !important;
+  width: 100%;
+  background: #4183d7 !important;
+  height: 60px; }
+
+.main-page.content {
+  padding: 0 20px; }
