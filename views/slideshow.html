@@ -14,21 +14,95 @@
 
 
     <div ng-controller="ShoeCtrl">
-      <div id="holder" x-ng-switch="selectionDone">
+      <div id="holder" x-ng-switch="currentStep">
 
-        <div id="options" x-ng-switch-default>
-          <div ng-show="currentItem()" draggable="true" hm-swipeleft="skipShoe" hm-swiperight="saveShoe(currentItem())">
-              {{currentItem()}}
-            <button ng-click="nextShoe()">Left</button>
-            <button ng-click="saveShoe(currentItem())">Right</button>
+        <!-- STEP 1, CHOOSE GENDER CATEGORY PRICE -->
+        <div x-ng-switch-default>
+          <div class="main-page content">
+            <div class="row">
+              <h4>GENDER</h4>
+                    <button ng-click="setGender('mens')">Men's</button>
+                    <button ng-click="setGender('womens')">Women's</button>
+                  </div>
+                <div class="row">
+              <h4>TYPE</h4>
+              <button ng-click="setOccassion('casual')">Casual</button>
+                    <button ng-click="setOccassion('dressy')">Dressy</button>
+                    <button ng-click="setOccassion('outdoors')">Outdoors</button>
+                    <button ng-click="setOccassion('work')">Work</button>
+            </div>
+            <div class="row">
+                     <h4>PRICE</h4>
+              <button ng-click="setSeason('spring')"><i class="fa fa-usd"></i></button>
+                    <button ng-click="setSeason('summer')"><i class="fa fa-usd"></i><i class="fa fa-usd"></i></button>
+                    <button ng-click="setSeason('fall')"><i class="fa fa-usd"></i><i class="fa fa-usd"></i><i class="fa fa-usd"></i></button>
+                   <button class="submitbutton" ng-click="step(2)">Submit</button>
+              </div>
           </div>
+        </div>
+
+        <!-- STEP 2, CHOOSE COLORS -->
+        <div x-ng-switch-when="2">
+  <button style="position: absolute;right:0;z-index:99999;" x-ng-click="step(3)">CHOOSE moar SHOES</button>
+          <div class="color-page nav">
+            <i class="fa fa-arrow-left"></i>
+
+          </div>
+
+          <div class="color-page content-wrapper">
+            <div class="color-page content content-top">
+            </div>
+            <div class="color-page content content-bottom">
+            </div>
+            <section id="video-wrapper"></section>
+          </div>
+
+          STEP 2
+        </div>
+
+
+
+        <!-- STEP 3, CHOOSE SHOES -->
+        <div id="options" x-ng-switch-when="3">
+
+          <div class="products-page nav">
+            <i class="fa fa-arrow-left"></i>
+            <h2>RESULTS</h2>
+          </div>
+
+
+            <div class="products-page content">
+              <div id="result" class="result" draggable="true" ng-show="currentItem()" hm-swipeleft="skipShoe" hm-swiperight="saveShoe(currentItem())">
+
+                {{currentItem()}}
+
+                <div class="product-image"></div>
+
+                <section class="product-label">
+                  <h3 class="product-name">Product Name</h3><h3 class="product-price">$90.99</h3>
+                </section>
+              </div>
+
+              <div class="result-stack-effect">
+              </div>
+
+
+            </div>
+            <div class="product-like">
+              <div ng-click="nextShoe()" class="hate"><i class="fa fa-times"></i></div>
+              <div ng-click="saveShoe(currentItem())" class="love"><i class="fa fa-check"></i></div>
+            </div>
+
         </div><!-- end options -->
 
-        <div id="results" x-ng-switch-when="done">
+
+        <!-- STEP 4, SEE FINAL RESULTS -->
+        <div id="results" x-ng-switch-when="4">
           DOG QUZZUP
           <div x-ng-repeat="chosenShoe in chosenShoes">
             {{chosenShoe}}
           </div>
+
         </div> <!-- end results -->
 
       </div> <!-- end switch holder -->
@@ -42,5 +116,22 @@
     <script src="../js/controllers/ShoeCtrl.js"></script>
     <script src="../js/services/shoeFactory.js"></script>
     <script src="../js/gestures.min.js"></script>
+
+    <script charset="utf-8">
+      var resultSize = $('.container').width()*0.92;
+      $('.result, .result-stack-effect').css({
+        'max-width': resultSize,
+        'max-height': resultSize,
+        'visibility': 'visible'
+      });
+      $('.result-stack-effect').css({
+        'top': resultSize * -1
+      })
+      $('.product-image').css({
+        'max-height': $('.result').height() - 40,
+      })
+
+
+    </script>
   </body>
 </html>

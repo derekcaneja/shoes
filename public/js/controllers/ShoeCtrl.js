@@ -40,24 +40,24 @@ shoeApp.controller('ShoeCtrl', ['$scope', 'shoeFactory', function($scope, shoeFa
       var _this = this;
       if (this.currentNum == this.resultShoes.length){
         console.log('done choozing')
-        _this.selectionDone();
+        _this.step(4);
       }
     };
 
     $scope.currentNum = 0;
 
     $scope.currentItem = function(){
-        return this.resultShoes[this.currentNum];
+      return this.resultShoes[this.currentNum];
     };
 
     $scope.chosenShoes = [];
 
-    $scope.selectionDone = function(){
-      if (this.currentNum == this.resultShoes.length ){
-        console.log('ahhh!!!')
-        $scope.selectionDone = "done";
-      }
+    $scope.step = function(index){
+      $scope.currentStep = index;
+      console.log(index)
     }
+
+    $scope.currentStep = 1;
   };
 
   init();
