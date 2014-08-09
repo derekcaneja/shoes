@@ -2,6 +2,6 @@
 
 var ShoeApp = angular.module('ShoeApp', []);
 
-$document.ready( function(){
+$(document).ready( function(){
 
 });
