@@ -26,6 +26,7 @@ app.configure('development', function(){
 app.get('/', routes.index);
 app.get('/color', routes.color);
 app.get('/results', routes.results);
+app.get('/slideshow', routes.slideshow)
 
 hhBrown.connect('53e629fe2009340200000022', 'CvbfKmMkDkdlXUU4tUHsMaMr', function() {
 

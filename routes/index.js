@@ -8,3 +8,7 @@ exports.color = function(req, res){
 exports.results = function(req, res){
   res.render('products', { title: 'Express' });
 };
+
+exports.slideshow = function(req,res){
+  res.render('slideshow', {title: 'Slideshow'})
+}
