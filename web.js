@@ -9,7 +9,8 @@ var app = express();
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
-  app.set('view engine', 'hbs');
+  app.engine('html', require('ejs').renderFile);
+  app.set('view engine', 'html');
   app.use(express.favicon());
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
@@ -27,9 +28,7 @@ app.get('/color', routes.color);
 app.get('/results', routes.results);
 
 hhBrown.connect('53e629fe2009340200000022', 'CvbfKmMkDkdlXUU4tUHsMaMr', function() {
-  hhBrown.get('bycolor', { color: 'Brown' }, function(err, shoes) {
-    console.log(err, shoes);
-  });
+
 });
 
 http.createServer(app).listen(app.get('port'), function(){
