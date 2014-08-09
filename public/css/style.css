@@ -391,6 +391,11 @@ a {
 
 li {
   list-style: none; }
+  li * {
+    vertical-align: middle;
+    color: rgba(70, 109, 73, 0.2); }
+  li a {
+    color: rgba(70, 109, 73, 0.2); }
 
 .logo {
   background-color: rgba(70, 109, 73, 0.2);
@@ -535,6 +540,9 @@ video {
       background: transparent; }
       .product-like .love:active i {
         color: #fff !important; }
+
+#result {
+  z-index: 999999 !important; }
 
 .result, .result-stack-effect {
   cursor: pointer;
