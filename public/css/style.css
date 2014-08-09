@@ -478,6 +478,30 @@ video {
   font-weight: 700;
   color: #519f59; }
 
+.product-like {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  height: 60px;
+  text-align: center; }
+  .product-like div {
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    border: 3px solid #fff;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    margin: 0 8px;
+    padding-top: 15px; }
+    .product-like div i {
+      font-size: 24px;
+      color: #fff; }
+  .product-like .love {
+    background: #fff; }
+    .product-like .love i {
+      color: #90c695 !important; }
+
 .result, .result-stack-effect {
   z-index: 10;
   position: relative;
