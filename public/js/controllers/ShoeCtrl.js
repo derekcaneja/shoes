@@ -141,8 +141,10 @@ shoeApp.controller('ShoeCtrl', ['$scope', 'shoeFactory', function($scope, shoeFa
                     if(distances[col] < distances[closestColor]) closestColor = col;
                 }
 
+                console.log(closestColor)
+
                 for(var i = 0; i < $scope.items.length; i++) {                    
-                    var color = $scope.items[i].color;
+                    var color = $scope.items[i].color.toLowerCase();
 
                     if(color.indexOf('black')   > -1) color = 'black';
                     if(color.indexOf('brown')   > -1) color = 'brown';
