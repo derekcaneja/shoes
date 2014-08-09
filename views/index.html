@@ -75,12 +75,10 @@
             <div class="products-page content">
               <div id="result" class="result" draggable="true" ng-show="currentItem()" hm-swipeleft="skipShoe" hm-swiperight="saveShoe(currentItem())">
 
-                {{currentItem()}}
-
-                <div class="product-image"></div>
+                <div style="background-image: url('{{currentItem().image_link}}')"class="product-image"></div>
 
                 <section class="product-label">
-                  <h3 class="product-name">Product Name</h3><h3 class="product-price">$90.99</h3>
+                  <h3 class="product-name">{{currentItem().title}}</h3><h3 class="product-price">{{currentItem().price}}</h3>
                 </section>
               </div>
 
@@ -133,6 +131,11 @@
       $('.product-image').css({
         'max-height': $('.result').height() - 40,
       })
+
+      $('#video-wrapper').css({
+        'top': ($('.content-top').height() + $('.content-bottom').height()) * -1,
+        'visibility': 'visible'
+      });
 
 
     </script>
