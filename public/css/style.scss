@@ -295,8 +295,8 @@ video{
 	}
 }
 .selected-button{
-	background: darken($green,20%);
-	border: 2px solid white;
+	background: darken($green,20%) !important;
+	border: 2px solid white !important;
 }
 .not-selected{
 	background: darken($green,8%);

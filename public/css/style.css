@@ -590,8 +590,8 @@ video {
   box-shadow: none; }
 
 .selected-button, .main-page button:active {
-  background: #519f59;
-  border: 2px solid white; }
+  background: #519f59 !important;
+  border: 2px solid white !important; }
 
 .not-selected {
   background: #75b87b; }
