@@ -1,3 +1,5 @@
+var colorThief = new ColorThief();
+
 shoeApp.controller('ShoeCtrl', ['$scope', 'shoeFactory', function($scope, shoeFactory){
 
 
@@ -5,7 +7,6 @@ shoeApp.controller('ShoeCtrl', ['$scope', 'shoeFactory', function($scope, shoeFa
     console.log('initing');
 
     // USER FORM INPUT
-    var colorThief = new ColorThief();
 
     $scope.params = {};
 
@@ -63,7 +64,7 @@ shoeApp.controller('ShoeCtrl', ['$scope', 'shoeFactory', function($scope, shoeFa
 
         $scope.colors.push(color);
 
-        if ($scope.colors.length == 1) video.style.top = $('.content-' + section).height();
+        if ($scope.colors.length == 1) $('#video-wrapper').css('top', $('.content-' + section).height());
         else if ($scope.colors.length == 2) console.log('done!');
     }
 
@@ -92,25 +93,40 @@ shoeApp.controller('ShoeCtrl', ['$scope', 'shoeFactory', function($scope, shoeFa
 
     $scope.currentNum = 0;
 
-    $scope.currentItem = function(){
-      console.log(this.items)
-      return this.items[this.currentNum];
+        $scope.currentItem = function(){
+            console.log(this.items)
+            return this.items[this.currentNum];
+        };
+
+        $scope.chosenShoes = [];
+
+        $scope.currentStep = 1;
+
+        $scope.step = function(index){
+            if($scope.currentStep == 1) {
+                shoeFactory.getShoes('bygendertypeminpriceandmaxprice', $scope.params).success(function(data) {
+                    $scope.items = data;
+                });
+
+                $('#video-wrapper').css('top', 0);
+                $('#video-wrapper').css('visibility', true);
+            } else if($scope.currentStep == 2) {
+                var test = {};
+
+                for(var i = 0; i < $scope.items.length; i++) {
+                    var color = $scope.items[i].color.toLowerCase();
+
+                    if(color.indexOf('black') > -1) color = 'black';
+                    if(color.indexOf('brown') > -1) color = 'brown';
+                    if(color.indexOf('tan') > -1)   color = 'tan';
+                }
+
+                console.log(test)
+            }
+            
+            $scope.currentStep = index;
+        }
     };
 
-    $scope.chosenShoes = [];
-
-    $scope.step = function(index){
-        if($scope.currentStep == 1) {
-            shoeFactory.getShoes('bygendertypeminpriceandmaxprice', $scope.params).success(function(data) {
-                $scope.items = data;
-            });
-        }
-        
-        $scope.currentStep = index;
-    }
-
-    $scope.currentStep = 1;
-  };
-
-  init();
+    init();
 }]);
