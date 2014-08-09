@@ -1,7 +1,7 @@
 'use strict';
 
-var ShoeApp = angular.module('ShoeApp', []);
+var shoeApp = angular.module('shoeApp', []);
 
 $(document).ready( function(){
-
+  console.log('loaded bro')
 });
