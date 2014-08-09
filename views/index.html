@@ -81,6 +81,7 @@
 
       <img src="{{currentItem().image_link}}" width="100%" class="product-image">
 
+
                 <section class="product-label">
                   <h3 class="product-name">{{currentItem().title}}</h3><h3 class="product-price">{{currentItem().price}}</h3>
                 </section>
@@ -98,6 +99,7 @@
 
         <!-- STEP 4, SEE FINAL RESULTS -->
         <div id="results" x-ng-switch-when="4">
+        	<h3>Your Favorites</h3>
           <li x-ng-repeat="chosenShoe in chosenShoes">
 
 
