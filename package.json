@@ -12,7 +12,6 @@
     "http":"*",
     "path":"*",
     "routes":"*",
-    "hhbrown":"*",
     "ejs":"*"
 
   },
