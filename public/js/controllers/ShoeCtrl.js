@@ -119,17 +119,18 @@ shoeApp.controller('ShoeCtrl', ['$scope', 'shoeFactory', function($scope, shoeFa
             } else if($scope.currentStep == 2) {
 
                 for(var i = 0; i < $scope.items.length; i++) {
-                    var color = $scope.items[i].color.toLowerCase();
+                   $scope.finalItems.push($scope.items[i]);
+                //     var color = $scope.items[i].color.toLowerCase();
 
-                    if(color.indexOf('black') > -1) color = 'black';
-                    if(color.indexOf('brown') > -1) color = 'brown';
-                    if(color.indexOf('tan') > -1)   color = 'tan';
+                //     if(color.indexOf('black') > -1) color = 'black';
+                //     if(color.indexOf('brown') > -1) color = 'brown';
+                //     if(color.indexOf('tan') > -1)   color = 'tan';
 
-                    if(color == 'black' && $scope.colors[0][0] < 90 && $scope.colors[0][1] < 90 && $scope.colors[0][2] < 90) {
-                        $scope.finalItems.push($scope.items[i]);
-                    } else if(color == 'tan' && $scope.colors[0][0] > 170 && $scope.colors[0][1] > 150 && $scope.colors[0][2] > 130) {
-                        $scope.finalItems.push($scope.items[i]);
-                    }
+                //     if(color == 'black' && $scope.colors[0][0] < 90 && $scope.colors[0][1] < 90 && $scope.colors[0][2] < 90) {
+                //         $scope.finalItems.push($scope.items[i]);
+                //     } else if(color == 'tan' && $scope.colors[0][0] > 170 && $scope.colors[0][1] > 150 && $scope.colors[0][2] > 130) {
+                //         $scope.finalItems.push($scope.items[i]);
+                //     }
                 }
             } 
             
