@@ -388,6 +388,9 @@ a {
   .masthead h1 {
     color: #466d49; }
 
+li {
+  list-style: none; }
+
 .logo {
   background-color: rgba(70, 109, 73, 0.2);
   -webkit-border-radius: 50%;

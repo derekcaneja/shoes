@@ -58,8 +58,8 @@ a {
 		color: desaturate(darken(rgba($green,1),32%),10%);
 	}
 }
-.lastpage{
-	
+li{
+	list-style: none;
 }
 .logo{
 	background-color: desaturate(darken(rgba($green,0.2),32%),10%);
