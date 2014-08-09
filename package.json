@@ -1,12 +1,32 @@
 {
-  "name": "application-name",
+  "name": "shoe-in",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node app"
   },
   "dependencies": {
-    "express": "3.0.3",
-    "hbs": "*"
-  }
+    "express": "^3.0.3",
+    "hbs": "*",
+    "logfmt": "^1.1.2",
+    "http":"*",
+    "path":"*",
+    "routes":"*",
+    "hhbrown":"*",
+    "ejs":"*"
+
+  },
+  "description": "shoes =====",
+  "main": "web.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/derekcaneja/shoes.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/derekcaneja/shoes/issues"
+  },
+  "homepage": "https://github.com/derekcaneja/shoes"
 }
