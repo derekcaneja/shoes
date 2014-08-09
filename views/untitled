@@ -1,0 +1,18 @@
+<div class="color-page nav">
+	<div class="logo"></div>
+	<h1>Shoes</h1>
+</div>
+<div class="color-page content">
+	<div class="row">
+		<h4>Gender</h4>
+		<button>MENS</button><button>WOMENS</button>
+	</div>
+	<div class="row">
+		<h4>Occasion</h4>
+		<button>CASUAL</button><button>DRESSY</button><button>OUTDOORS</button><button>WORK</button>
+	</div>
+	<div class="row">
+		<h4>Season</h4>
+		<button>SPRING</button><button>SUMMER</button><button>FALL</button><button>WINTER</button>
+	</div>
+</div>

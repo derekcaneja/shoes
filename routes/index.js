@@ -1,7 +1,10 @@
-exports.index = function(req, res) {
+exports.index = function(req, res){
   res.render('index', { title: 'Express' });
 };
 
-exports.api = function(req, res) {
-
-}
+exports.color = function(req, res){
+  res.render('color', { title: 'Express' });
+};
+exports.results = function(req, res){
+  res.render('products', { title: 'Express' });
+};
