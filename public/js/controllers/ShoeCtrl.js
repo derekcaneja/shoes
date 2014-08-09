@@ -117,17 +117,40 @@ shoeApp.controller('ShoeCtrl', ['$scope', 'shoeFactory', function($scope, shoeFa
                 $('#video-wrapper').css('top', 0);
                 $('#video-wrapper').css('visibility', true);
             } else if($scope.currentStep == 2) {
+                var colors = {
+                    'black' : [50, 50, 50],
+                    'brown' : [89, 74, 70],
+                    'tan'   : [172, 151, 125],
+                    'white' : [240, 240, 240],
+                    'silver': [130, 130, 130]
+                };
 
-                for(var i = 0; i < $scope.items.length; i++) {
-                    var color = $scope.items[i].color.toLowerCase();
+                var distances = {};
 
-                    if(color.indexOf('black') > -1) color = 'black';
-                    if(color.indexOf('brown') > -1) color = 'brown';
-                    if(color.indexOf('tan') > -1)   color = 'tan';
+                for(var col in colors) {
+                    var r = Math.pow(colors[col][0] * $scope.colors[0][0], 2);
+                    var g = Math.pow(colors[col][1] * $scope.colors[0][1], 2);
+                    var b = Math.pow(colors[col][2] * $scope.colors[0][2], 2);
 
-                    if(color == 'black' && $scope.colors[0][0] < 90 && $scope.colors[0][1] < 90 && $scope.colors[0][2] < 90) {
-                        $scope.finalItems.push($scope.items[i]);
-                    } else if(color == 'tan' && $scope.colors[0][0] > 170 && $scope.colors[0][1] > 150 && $scope.colors[0][2] > 130) {
+                    distances[col] = Math.sqrt(r + g + b);
+                }
+
+                var closestColor = 'black';
+
+                for(var col in distances) {
+                    if(distances[col] < distances[closestColor]) closestColor = col;
+                }
+
+                for(var i = 0; i < $scope.items.length; i++) {                    
+                    var color = $scope.items[i].color;
+
+                    if(color.indexOf('black')   > -1) color = 'black';
+                    if(color.indexOf('brown')   > -1) color = 'brown';
+                    if(color.indexOf('tan')     > -1) color = 'tan';
+                    if(color.indexOf('white')   > -1) color = 'white';
+                    if(color.indexOf('silver')  > -1) color = 'silver';
+
+                    if(closestColor == color) {
                         $scope.finalItems.push($scope.items[i]);
                     }
                 }
