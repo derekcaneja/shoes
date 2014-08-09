@@ -54,15 +54,23 @@ a {
 	padding-top: 40px;
 	width: 100%;
 	text-align: center;
-
+	h1{
+		color: desaturate(darken(rgba($green,1),32%),10%);
+	}
 }
-
+.lastpage{
+	
+}
 .logo{
-	background-color: black;
+	background-color: desaturate(darken(rgba($green,0.2),32%),10%);
 	@include border-radius(50%);
-	height: 60px;
-	width: 60px;
+	height: 160px;
+	width: 160px;
 	margin: 0 auto;
+	background-image: url('../img/logo.png');
+	background-position: center;
+	background-size: 60% auto;
+	background-repeat: no-repeat;
 }
 
 .nav{
@@ -171,8 +179,9 @@ video{
 	
 }
 .product-image{
-	width: auto;
+	width: 100%;
 	height: 100%;
+	@extend .unselectable;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: 98% auto;
@@ -207,13 +216,23 @@ video{
 
 		}
 	}
+	.hate{
+		&:active{
+			i{color: $green !important;}
+			background: #fff;
+		}
+	}
 	.love{
 		background: #fff;
 		i{color: $green !important;}
+		&:active{
+			i{color: #fff !important;}
+			background: transparent;
+		}
 	}
 }
 .result{
-	cursor: move;
+	cursor: pointer;
 	z-index: 10;
 	position: relative;
 	visibility: hidden;
@@ -223,6 +242,9 @@ video{
 	background: #f9fcfa;
 	border: 4px solid darken($green,25%);
 	@include border-radius(6px);
+	&:active{
+		cursor: move !important;
+	}
 }
 
 .result-stack-effect{
@@ -274,4 +296,15 @@ video{
 }
 .main-page.content{
 	padding: 0 20px;
+}
+.unselectable {
+    /* For Opera and <= IE9, we need to add unselectable="on" attribute onto each element */
+    /* Check this site for more details: http://help.dottoro.com/lhwdpnva.php */
+    -moz-user-select: none; /* These user-select properties are inheritable, used to prevent text selection */
+    -webkit-user-select: none;
+    -ms-user-select: none; /* From IE10 only */
+    user-select: none; /* Not valid CSS yet, as of July 2012 */
+
+    -webkit-user-drag: none; /* Prevents dragging of images/divs etc */
+    user-drag: none;
 }

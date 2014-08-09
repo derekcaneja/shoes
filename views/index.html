@@ -19,6 +19,10 @@
         <!-- STEP 1, CHOOSE GENDER CATEGORY PRICE -->
         <div x-ng-switch-default>
 			<div class="main-page content">
+				<div class="masthead">
+					<div class="logo"></div>
+					<h1>Shoe-In</h1>
+				</div>
 				<div class="row">
 					<h4>GENDER</h4>
 					<button ng-click="setGender('mens')">Men's</button>
@@ -57,8 +61,6 @@
             </div>
             <section id="video-wrapper"></section>
           </div>
-
-          STEP 2
         </div>
 
 
@@ -76,16 +78,14 @@
               <div id="result" class="result" draggable="true" ng-show="currentItem()" hm-dragleft="skipShoe()" hm-dragright="saveShoe(currentItem())" hm-swipeleft="skipShoe()" hm-swiperight="saveShoe(currentItem())">
 
 
-
-                <img ng-src="{{currentItem().image_link}}" class="product-image"></div>
+                <img src="{{currentItem().image_link}}" width="100%" class="product-image">
                 <section class="product-label">
                   <h3 class="product-name">{{currentItem().title}}</h3><h3 class="product-price">{{currentItem().price}}</h3>
                 </section>
+                </div>
+                <div class="result-stack-effect">
               </div>
-
-              <div class="result-stack-effect">
               </div>
-
             <div class="product-like">
               <div ng-click="nextShoe()" class="hate"><i class="fa fa-times"></i></div>
               <div ng-click="saveShoe(currentItem())" class="love"><i class="fa fa-check"></i></div>
@@ -96,8 +96,7 @@
 
         <!-- STEP 4, SEE FINAL RESULTS -->
         <div id="results" x-ng-switch-when="4">
-          DOG QUZZUP
-          <li x-ng-repeat="chosenShoe in chosenShoes">
+          <li class="lastpage" x-ng-repeat="chosenShoe in chosenShoes">
 
             <a href="{{chosenShoe.link}}">
               <img src="{{chosenShoe.image_link}}">
