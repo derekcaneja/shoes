@@ -4,10 +4,8 @@ shoeApp.controller('ShoeCtrl', ['$scope', 'shoeFactory', function($scope, shoeFa
   function init(){
     console.log('initing');
 
-
     // USER FORM INPUT
     var colorThief = new ColorThief();
-
 
     $scope.params = {};
 
@@ -34,13 +32,6 @@ shoeApp.controller('ShoeCtrl', ['$scope', 'shoeFactory', function($scope, shoeFa
     };
 
     $scope.items = null;
-
-    // USER SELECTION METHODS
-    $scope.showColorChooser = function() {
-        shoeFactory.getShoes('bygendertypeminpriceandmaxprice', $scope.params).success(function(data) {
-            $scope.items = data;
-        });
-    };
 
     $scope.colors = [];
 
@@ -109,8 +100,13 @@ shoeApp.controller('ShoeCtrl', ['$scope', 'shoeFactory', function($scope, shoeFa
     $scope.chosenShoes = [];
 
     $scope.step = function(index){
-      $scope.currentStep = index;
-      console.log(index)
+        if($scope.currentStep == 1) {
+            shoeFactory.getShoes('bygendertypeminpriceandmaxprice', $scope.params).success(function(data) {
+                $scope.items = data;
+            });
+        }
+        
+        $scope.currentStep = index;
     }
 
     $scope.currentStep = 1;
