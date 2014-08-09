@@ -363,6 +363,13 @@ body {
   margin: 0 auto;
   background: rgba(144, 198, 149, 0.6); }
 
+#holder {
+  overflow: hidden !important;
+  height: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+  background: rgba(144, 198, 149, 0.6); }
+
 #video-wrapper {
   width: 100%;
   max-width: 460px;
