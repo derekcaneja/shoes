@@ -75,8 +75,7 @@
             <div class="products-page content">
               <div id="result" class="result" draggable="true" ng-show="currentItem()" hm-swipeleft="skipShoe" hm-swiperight="saveShoe(currentItem())">
 
-                <div style="background-image: url('{{currentItem().image_link}}')" class="product-image"></div>
-
+                <div ng-style="{'background-image': 'url(\'{{currentItem().image_link}}\')'}" class="product-image"></div>
                 <section class="product-label">
                   <h3 class="product-name">{{currentItem().title}}</h3><h3 class="product-price">{{currentItem().price}}</h3>
                 </section>

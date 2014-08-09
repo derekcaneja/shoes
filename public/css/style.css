@@ -470,9 +470,6 @@ video {
     .products-page.content h3:last-of-type {
       float: right; }
 
-.product-image {
-  background-image: url("http://images.hhbrown.com/born/Pair/D20311-130xauto.jpg"); }
-
 .content-bottom {
   background-image: url("../img/pants.png");
   height: 50%;
