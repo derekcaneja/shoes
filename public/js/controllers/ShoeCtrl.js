@@ -81,7 +81,6 @@ shoeApp.controller('ShoeCtrl', ['$scope', 'shoeFactory', function($scope, shoeFa
     }
 
     // USER SELECTION METHODS
-    $scope.resultShoes = shoeFactory.getShoes("catalog",$scope.params);
 
     $scope.saveShoe = function(shoe){
       console.log('saved!')
@@ -94,7 +93,7 @@ shoeApp.controller('ShoeCtrl', ['$scope', 'shoeFactory', function($scope, shoeFa
       console.log('skipped shoe!');
       this.currentNum ++;
       var _this = this;
-      if (this.currentNum == this.resultShoes.length){
+      if (this.currentNum == this.items.length){
         console.log('done choozing')
         _this.step(4);
       }
@@ -103,7 +102,8 @@ shoeApp.controller('ShoeCtrl', ['$scope', 'shoeFactory', function($scope, shoeFa
     $scope.currentNum = 0;
 
     $scope.currentItem = function(){
-      return this.resultShoes[this.currentNum];
+      console.log(this.items)
+      return this.items[this.currentNum];
     };
 
     $scope.chosenShoes = [];
