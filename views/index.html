@@ -1,56 +1,62 @@
 <html lang="en" x-ng-app="shoeApp">
-    <head>
-        <meta charset='utf-8'/>
-        <title>Let's get some shoes</title>
-        <meta name="viewport" content="width=device-width, user-scalable=no">
-        <link href="css/style.css" rel="stylesheet">
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <head>
+    <title>Let's get some shoes</title>
 
-            <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-            <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    </head>
+    <meta charset='utf-8'/>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
 
-    <body>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  </head>
 
-    <div ng-controller="ShoeCtrl">
-		<div id="holder" x-ng-switch="currentStep">
+  <body>
+    <div ng-controller="shoeCtrl">
+		  <div id="holder" x-ng-switch="currentStep">
 
         <!-- STEP 1, CHOOSE GENDER CATEGORY PRICE -->
         <div x-ng-switch-default>
-			<div class="main-page content">
-				<div class="masthead">
-					<div class="logo"></div>
-					<h1>Shoe-In</h1>
-				</div>
-				<div class="row">
-					<h4>GENDER</h4>
-					<button ng-click="setGender('mens')" class="mens">Men's</button>
-					<button ng-click="setGender('womens')" class="womens">Women's</button>
-                </div>
-                <div class="row">
-              		<h4>TYPE</h4>
-              		<button ng-click="setOccassion('Casual')" class="Casual">Casual</button>
-              		<button ng-click="setOccassion('Dress')" class="Dress">Dressy</button>
-              		<button ng-click="setOccassion('Slippers')" class="Slippers">Slippers</button>
-                    <button ng-click="setOccassion('Boots')" class="Boots">Boots</button>
-                    <button ng-click="setOccassion('Sandals')" class="Sandals">Sandals</button>
-            	</div>
-            	<div class="row">
-                     <h4>PRICE</h4>
-              		<button ng-click="setPrice('1')" class="money1"><i class="fa fa-usd"></i></button>
-                    <button ng-click="setPrice('2')" class="money2"><i class="fa fa-usd"></i><i class="fa fa-usd"></i></button>
-                    <button ng-click="setPrice('3')" class="money3"><i class="fa fa-usd"></i><i class="fa fa-usd"></i><i class="fa fa-usd"></i></button>
-                   	<button class="submitbutton" ng-click="step(2)">Submit</button>
-              </div>
+
+    			<div class="main-page content">
+
+    				<div class="masthead">
+    					<div class="logo"></div>
+    					<h1>Shoe-In</h1>
+    				</div>
+
+    				<div class="row">
+    					<h4>GENDER</h4>
+    					<button ng-click="setGender('mens')" class="mens">Men's</button>
+    					<button ng-click="setGender('womens')" class="womens">Women's</button>
+            </div>
+
+            <div class="row">
+          	  <h4>TYPE</h4>
+          		<button ng-click="setOccassion('Casual')" class="Casual">Casual</button>
+          		<button ng-click="setOccassion('Dress')" class="Dress">Dressy</button>
+          		<button ng-click="setOccassion('Slippers')" class="Slippers">Slippers</button>
+              <button ng-click="setOccassion('Boots')" class="Boots">Boots</button>
+              <button ng-click="setOccassion('Sandals')" class="Sandals">Sandals</button>
+      	    </div>
+
+          	<div class="row">
+              <h4>PRICE</h4>
+        		  <button ng-click="setPrice('1')" class="money1"><i class="fa fa-usd"></i></button>
+              <button ng-click="setPrice('2')" class="money2"><i class="fa fa-usd"></i><i class="fa fa-usd"></i></button>
+              <button ng-click="setPrice('3')" class="money3"><i class="fa fa-usd"></i><i class="fa fa-usd"></i><i class="fa fa-usd"></i></button>
+             	<button class="submitbutton" ng-click="step(2)">Submit</button>
+            </div>
+
           </div>
         </div>
 
         <!-- STEP 2, CHOOSE COLORS -->
         <div x-ng-switch-when="2">
+
           <div class="color-page nav">
             <i class="fa fa-arrow-left" x-ng-click="step(1)"></i>
-
           </div>
 
           <div class="color-page content-wrapper">
@@ -60,9 +66,8 @@
             </div>
             <section id="video-wrapper"></section>
           </div>
+
         </div>
-
-
 
         <!-- STEP 3, CHOOSE SHOES -->
         <div id="options" x-ng-switch-when="3">
@@ -73,25 +78,20 @@
           </div>
 
 
-            <div class="products-page content">
-
-
-              <div id="result" class="result" ng-show="currentItem()" hm-swipeleft="skipShoe()" hm-swiperight="saveShoe(currentItem())">
-
-      <img src="{{currentItem().image_link}}" width="100%" class="product-image">
-
-
-                <section class="product-label">
-                  <h3 class="product-name">{{currentItem().title}}</h3><h3 class="product-price">{{currentItem().price}}</h3>
-                </section>
-                </div>
-                <div class="result-stack-effect">
-              </div>
-              </div>
-            <div class="product-like">
-              <div ng-click="nextShoe()" class="hate"><i class="fa fa-times"></i></div>
-              <div ng-click="saveShoe(currentItem())" class="love"><i class="fa fa-check"></i></div>
+          <div class="products-page content">
+            <div id="result" class="result" ng-show="currentItem()" hm-swipeleft="skipShoe()" hm-swiperight="saveShoe(currentItem())">
+              <img src="{{currentItem().image_link}}" width="100%" class="product-image">
+              <section class="product-label">
+                <h3 class="product-name">{{currentItem().title}}</h3><h3 class="product-price">{{currentItem().price}}</h3>
+              </section>
             </div>
+            <div class="result-stack-effect"></div>
+          </div>
+
+          <div class="product-like">
+            <div ng-click="nextShoe()" class="hate"><i class="fa fa-times"></i></div>
+            <div ng-click="saveShoe(currentItem())" class="love"><i class="fa fa-check"></i></div>
+          </div>
 
         </div><!-- end options -->
 
@@ -100,16 +100,12 @@
         <div id="results" x-ng-switch-when="4">
         	<h3>Your Favorites</h3>
           <li x-ng-repeat="chosenShoe in chosenShoes">
-
-
             <a href="{{chosenShoe.link}}">
               <img src="{{chosenShoe.image_link}}">
               {{chosenShoe.title}}
               </img>
             </a>
-
           </li>
-
         </div> <!-- end results -->
 
       </div> <!-- end switch holder -->
@@ -118,13 +114,13 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.13/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.13/angular-animate.js"></script>
-    <script src="../js/color-thief.js"></script>
-    <script src="../js/angular-route.js"></script>
+    <script src="../js/lib/color-thief.js"></script>
+    <script src="../js/lib/angular-route.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/webcam.js"></script>
-    <script src="../js/controllers/ShoeCtrl.js"></script>
+    <script src="../js/controllers/shoeCtrl.js"></script>
     <script src="../js/services/ShoeFactory.js"></script>
-    <script src="../js/gestures.min.js"></script>
+    <script src="../js/lib/gestures.min.js"></script>
 
     <script charset="utf-8">
       var resultSize = $('#holder').width()*0.92;
@@ -144,10 +140,6 @@
         'top': ($('.content-top').height() + $('.content-bottom').height()) * -1,
         'visibility': 'visible'
       });
-
-
-
-
     </script>
   </body>
 </html>
